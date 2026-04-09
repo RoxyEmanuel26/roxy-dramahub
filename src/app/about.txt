@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: Grandstander
+- Font Title: Hanalei
 - Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/grandstander/v19/ga6fawtA-GpSsTWrnNHPCSIMZhhKpFjyNZIQD1--D3jWttFGmQk.ttf
+- Font Source: https://fonts.gstatic.com/s/hanalei/v23/E21n_dD8iufIjBRHXzgmVydREus.ttf
 - Font License: undefined)
