@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nonton — DramaHub</title>
+  <meta name="description" content="Streaming drama Korea dengan subtitle Indonesia di DramaHub.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><polygon points='11,7 11,25 25,16' fill='white'/></svg>">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <!-- Watch Layout -->
+  <div class="watch-layout">
+
+    <!-- Player Column -->
+    <div class="watch-player-col">
+
+      <!-- Breadcrumb & Episode Nav -->
+      <div class="watch-ep-nav">
+        <div class="breadcrumb" id="watch-breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span class="separator">›</span>
+          <span class="current">Loading...</span>
+        </div>
+      </div>
+
+      <div class="watch-ep-nav" style="margin-bottom:4px">
+        <h2 id="current-ep-title">Loading...</h2>
+        <div class="watch-ep-nav-btns">
+          <button class="btn btn-outline btn-sm" onclick="Player.prevEpisode()">← Prev</button>
+          <button class="btn btn-outline btn-sm" onclick="Player.nextEpisode()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Player -->
+      <div class="player-wrapper">
+        <div class="player-loading" id="player-loading">
+          <span>⏳ Memuat player...</span>
+        </div>
+        <iframe id="main-player" allowfullscreen allow="autoplay; encrypted-media" referrerpolicy="no-referrer"></iframe>
+      </div>
+
+      <!-- Server Selection -->
+      <div class="server-select">
+        <span class="server-select-label">Pilih Server:</span>
+        <button class="server-btn active" data-server="server1" onclick="Player.switchServer('server1')">Server 1 — VidSrc</button>
+        <button class="server-btn" data-server="server2" onclick="Player.switchServer('server2')">Server 2 — 2Embed</button>
+        <button class="server-btn" data-server="server3" onclick="Player.switchServer('server3')">Server 3 — SuperEmbed</button>
+      </div>
+
+      <!-- Watch Info -->
+      <div class="watch-info" id="watch-info">
+        <div class="skeleton" style="height:120px"></div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="watch-disclaimer">
+        ⚠️ Video disajikan oleh penyedia layanan pihak ketiga. DramaHub tidak menyimpan atau menghost konten video apapun. Jika video tidak tersedia, silakan coba server lain.
+      </div>
+    </div>
+
+    <!-- Episode Sidebar -->
+    <div class="watch-sidebar-col">
+      <div class="watch-sidebar-header">
+        <h3>Daftar Episode</h3>
+        <select id="watch-season-select" class="watch-season-select"></select>
+      </div>
+      <div class="watch-episode-list" id="watch-episode-list">
+        <div class="skeleton" style="height:60px"></div>
+        <div class="skeleton" style="height:60px"></div>
+        <div class="skeleton" style="height:60px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Drama Terkait</h2>
+      </div>
+      <div class="carousel-row" id="watch-recommendations"></div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/player.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

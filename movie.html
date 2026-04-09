@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Korea — DramaHub</title>
+  <meta name="description" content="Daftar lengkap film Korea terbaru dan terpopuler. Filter berdasarkan genre, tahun, dan lainnya.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><polygon points='11,7 11,25 25,16' fill='white'/></svg>">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Beranda</a>
+        <span class="separator">›</span>
+        <span class="current">Movie</span>
+      </div>
+      <h1>Daftar Movie Korea</h1>
+    </div>
+  </div>
+
+  <div class="filter-layout">
+
+    <aside class="filter-sidebar">
+      <!-- Genre -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Genre</h3>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="28"> Action</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="10749"> Romance</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="35"> Comedy</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="53"> Thriller</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="14"> Fantasy</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="18"> Drama</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="27"> Horror</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="80"> Crime</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="10752"> War</label>
+        <label class="filter-checkbox"><input type="checkbox" class="filter-genre" value="99"> Documentary</label>
+      </div>
+
+      <!-- Year -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Tahun Rilis</h3>
+        <select id="filter-year" class="filter-select">
+          <option value="">Semua Tahun</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <div class="filter-group">
+        <h3 class="filter-group-title">Urutan</h3>
+        <select id="filter-sort" class="filter-select">
+          <option value="release_date.desc">Terbaru</option>
+          <option value="vote_average.desc">Rating Tertinggi</option>
+          <option value="popularity.desc">Paling Populer</option>
+          <option value="title.asc">A — Z</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="btn btn-primary btn-sm" onclick="applyMovieFilters()">Terapkan Filter</button>
+        <button class="btn btn-outline btn-sm" onclick="resetMovieFilters()">Reset</button>
+      </div>
+    </aside>
+
+    <main class="filter-content">
+      <div class="filter-content-header">
+        <p id="result-info">Memuat movie...</p>
+      </div>
+      <div class="card-grid" id="movie-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+      <div id="movie-pagination"></div>
+    </main>
+  </div>
+
+  <button class="filter-mobile-toggle" onclick="toggleMobileFilter()">⚙ Filter</button>
+
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

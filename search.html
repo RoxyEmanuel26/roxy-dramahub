@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencarian — DramaHub</title>
+  <meta name="description" content="Cari drama dan movie Korea favorit kamu di DramaHub.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><polygon points='11,7 11,25 25,16' fill='white'/></svg>">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <!-- Search Hero -->
+  <div class="search-hero">
+    <div class="container">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-main-input" placeholder="Cari drama atau movie Korea..." autocomplete="off">
+        <span class="search-clear" id="search-clear">✕</span>
+        <div class="search-suggestions" id="search-suggestions"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="search-tabs">
+        <button class="badge clickable search-tab-btn active" data-type="all" onclick="switchSearchTab('all')">Semua</button>
+        <button class="badge clickable search-tab-btn" data-type="tv" onclick="switchSearchTab('tv')">Drama</button>
+        <button class="badge clickable search-tab-btn" data-type="movie" onclick="switchSearchTab('movie')">Movie</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div class="container" style="padding-top:var(--space-xl);padding-bottom:var(--space-3xl)">
+    <p class="search-results-info" id="search-result-info"></p>
+    <div class="card-grid" id="search-grid"></div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
