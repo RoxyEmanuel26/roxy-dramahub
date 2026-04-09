@@ -12,7 +12,7 @@ import MediaCard from "@/components/ui/MediaCard";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "DramaHub — Nonton Drama Korea Subtitle Indonesia",
+  title: "Roxy Drakor — Nonton Drama Korea Subtitle Indonesia",
   description:
     "Nonton streaming drama Korea terbaru dengan subtitle Indonesia secara gratis.",
 };
@@ -51,8 +51,8 @@ export default async function HomePage() {
       <HeroBanner items={heroItems} />
 
       {/* Episode Terbaru */}
-      <section className="px-4 md:px-8 lg:px-16 py-8">
-        <SectionHeader title="📺 Episode Terbaru" href="/drama" />
+      <section className="container py-8">
+        <SectionHeader title="Episode Terbaru" href="/drama" />
         <MediaGrid
           items={(onAir?.results || []).slice(0, 12)}
           type="tv"
@@ -61,8 +61,8 @@ export default async function HomePage() {
       </section>
 
       {/* Drama Terbaru */}
-      <section className="px-4 md:px-8 lg:px-16 py-8">
-        <SectionHeader title="🎬 Drama Terbaru" href="/drama" />
+      <section className="container py-8">
+        <SectionHeader title="Drama Terbaru" href="/drama" />
         <MediaGrid
           items={(latestTV?.results || []).slice(0, 10)}
           type="tv"
@@ -71,8 +71,8 @@ export default async function HomePage() {
       </section>
 
       {/* Movie Terbaru */}
-      <section className="px-4 md:px-8 lg:px-16 py-8">
-        <SectionHeader title="🎥 Movie Terbaru" href="/movie" />
+      <section className="container py-8">
+        <SectionHeader title="Movie Terbaru" href="/movie" />
         <MediaGrid
           items={(latestMovie?.results || []).slice(0, 10)}
           type="movie"
@@ -81,16 +81,16 @@ export default async function HomePage() {
       </section>
 
       {/* Top Rating */}
-      <section className="px-4 md:px-8 lg:px-16 py-8">
-        <SectionHeader title="⭐ Top Rating Sepanjang Masa" href="/top" />
+      <section className="container py-8">
+        <SectionHeader title="Top Rating Sepanjang Masa" href="/top" />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {(topRated?.results || []).slice(0, 10).map((item, i) => (
             <div key={item.id} className="relative">
               <span
                 className={`absolute -left-1 -top-1 z-10 w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold shadow-lg ${
                   i < 3
-                    ? "bg-gradient-to-br from-yellow-400 to-yellow-600 text-black"
-                    : "bg-[#333] text-white"
+                    ? "bg-gradient-to-br from-[#f59e0b] to-[#b45309] text-white"
+                    : "bg-[#1e1e1e] border border-[#333] text-[#f0f0f0]"
                 }`}
               >
                 {i + 1}

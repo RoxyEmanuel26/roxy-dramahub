@@ -109,7 +109,7 @@ export default function WatchClient({
         <div className="flex-1 min-w-0">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-[#b3b3b3] mb-2 flex-wrap">
-            <Link href="/" className="hover:text-white">DramaHub</Link>
+            <Link href="/" className="hover:text-white">Roxy Drakor</Link>
             <span className="text-[#444]">›</span>
             <Link href={`/detail/${type}/${id}`} className="hover:text-white truncate max-w-[200px]">
               {title}
@@ -240,7 +240,7 @@ export default function WatchClient({
 
           {/* Disclaimer */}
           <p className="text-xs text-[#444] text-center mt-8 pb-4">
-            DramaHub tidak menyimpan atau menghost konten video apapun. Video
+            Roxy Drakor tidak menyimpan atau menghost konten video apapun. Video
             disediakan oleh penyedia layanan pihak ketiga.
           </p>
         </div>

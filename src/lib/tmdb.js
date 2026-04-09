@@ -5,6 +5,11 @@ const LANG = "id-ID";
 export const IMG_BASE = "https://image.tmdb.org/t/p";
 
 async function tmdbFetch(endpoint, params = {}) {
+  if (!API_KEY || API_KEY === "GANTI_DENGAN_API_KEY_KAMU" || API_KEY === "your_tmdb_api_key_here") {
+    console.warn("[Roxy Drakor] TMDB_API_KEY belum diset. Buka .env.local dan masukkan API key dari themoviedb.org");
+    return { results: [], total_pages: 0, total_results: 0 };
+  }
+
   const url = new URL(`${BASE_URL}${endpoint}`);
   url.searchParams.set("api_key", API_KEY);
   url.searchParams.set("language", LANG);
@@ -15,7 +20,15 @@ async function tmdbFetch(endpoint, params = {}) {
   });
 
   const res = await fetch(url.toString(), { next: { revalidate: 3600 } });
-  if (!res.ok) throw new Error(`TMDB Error: ${res.status}`);
+
+  if (!res.ok) {
+    if (res.status === 401) {
+      console.error("[Roxy Drakor] TMDB API key tidak valid (401 Unauthorized). Periksa kembali API key di .env.local");
+      return { results: [], total_pages: 0, total_results: 0 };
+    }
+    throw new Error(`TMDB Error: ${res.status}`);
+  }
+
   return res.json();
 }
 

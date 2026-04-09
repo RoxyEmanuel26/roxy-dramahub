@@ -1,30 +1,27 @@
 import "./globals.css";
-import ThemeProvider from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: {
-    default: "DramaHub — Nonton Drama Korea Subtitle Indonesia",
-    template: "%s | DramaHub",
+    default: "Roxy Drakor — Nonton Drama Korea Subtitle Indonesia",
+    template: "%s | Roxy Drakor",
   },
   description:
-    "Nonton streaming drama Korea terbaru dan terpopuler dengan subtitle Indonesia secara gratis di DramaHub.",
+    "Nonton streaming drama Korea terbaru dan terpopuler dengan subtitle Indonesia secara gratis di Roxy Drakor.",
   openGraph: {
-    siteName: "DramaHub",
+    siteName: "Roxy Drakor",
     type: "website",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#0d0d0d] text-white antialiased">
-        <ThemeProvider>
-          <Navbar />
-          <main className="pt-16">{children}</main>
-          <Footer />
-        </ThemeProvider>
+    <html lang="id">
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -12,10 +12,10 @@ export async function generateMetadata({ params, searchParams }) {
     const suffix = type === "tv" ? ` — S${season} Ep${episode}` : "";
     return {
       title: `Nonton ${title}${suffix}`,
-      description: `Streaming ${title} subtitle Indonesia di DramaHub.`,
+      description: `Streaming ${title} subtitle Indonesia di Roxy Drakor.`,
     };
   } catch {
-    return { title: "Nonton — DramaHub" };
+    return { title: "Nonton — Roxy Drakor" };
   }
 }
 

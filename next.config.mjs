@@ -13,7 +13,12 @@ const nextConfig = {
         pathname: "/vi/**",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
+  // Production optimizations
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
 };
 
 export default nextConfig;

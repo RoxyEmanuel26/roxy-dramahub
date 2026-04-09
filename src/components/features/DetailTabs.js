@@ -43,29 +43,29 @@ export default function DetailTabs({
   const cast = (credits?.cast || []).slice(0, 12);
 
   return (
-    <div className="px-4 md:px-8 lg:px-16 py-8">
+    <div className="py-4">
       {/* Tab nav */}
-      <div className="flex gap-1 border-b border-[#1c1c1c] mb-6 sticky top-16 bg-[#0d0d0d] z-20 pt-2">
+      <div className="flex gap-4 border-b border-[#1e1e1e] mb-6 sticky top-14 bg-[#0a0a0a]/95 backdrop-blur-sm z-20 pt-2">
         {tabs.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`px-5 py-3 text-sm font-medium border-b-2 transition-colors ${
+            className={`px-2 py-3 text-sm font-semibold border-b-2 transition-colors ${
               activeTab === tab.key
-                ? "border-[#e50914] text-white"
-                : "border-transparent text-[#b3b3b3] hover:text-white"
+                ? "border-[#dc2626] text-white"
+                : "border-transparent text-[#999] hover:text-white"
             }`}
           >
-            {tab.label}
+            {tab.label.toUpperCase()}
           </button>
         ))}
       </div>
 
       {/* Info tab */}
       {activeTab === "info" && (
-        <div className="animate-fadeInUp max-w-3xl">
-          <div className="bg-[#141414] rounded-lg p-6">
-            <h3 className="text-lg font-bold mb-4">Informasi</h3>
+        <div className="fade-in max-w-3xl">
+          <div className="bg-[#111111] rounded-xl p-6 border border-[#1e1e1e]">
+            <h3 className="section-title mb-4 bg-transparent border-0 padding-0 !text-lg !pl-0">Informasi Lengkap</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-[#666]">Judul Asli</span>
@@ -127,13 +127,13 @@ export default function DetailTabs({
 
       {/* Episode tab */}
       {activeTab === "episode" && type === "tv" && (
-        <div className="animate-fadeInUp">
+        <div className="fade-in">
           {/* Season selector */}
           {detail.seasons?.length > 0 && (
             <select
               value={selectedSeason}
               onChange={(e) => changeSeason(Number(e.target.value))}
-              className="bg-[#1c1c1c] border border-[#333] rounded px-3 py-2 text-sm text-white mb-4 outline-none focus:border-[#e50914]"
+              className="bg-[#111111] border border-[#1e1e1e] rounded-lg px-3 py-2 text-sm text-white mb-4 outline-none focus:border-[#dc2626] transition-colors"
             >
               {detail.seasons
                 .filter((s) => s.season_number > 0)
@@ -152,20 +152,20 @@ export default function DetailTabs({
               ))}
             </div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {(seasonData?.episodes || []).map((ep) => (
                 <Link
                   key={ep.episode_number}
                   href={`/watch/tv/${id}?season=${selectedSeason}&episode=${ep.episode_number}`}
-                  className="flex items-center gap-4 p-3 rounded-lg bg-[#141414] hover:bg-[#1c1c1c] transition-colors group"
+                  className="flex items-center gap-4 p-3 rounded-xl bg-[#111111] border border-[#1e1e1e] hover:bg-[#161616] hover:border-[#dc2626]/50 transition-all group"
                 >
-                  <div className="w-28 h-16 bg-[#1c1c1c] rounded overflow-hidden shrink-0 relative">
+                  <div className="w-28 h-16 bg-[#161616] rounded-lg overflow-hidden shrink-0 relative">
                     {ep.still_path ? (
                       <Image
                         src={`${IMG_BASE}/w185${ep.still_path}`}
                         alt={ep.name}
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-105 transition-transform"
                         sizes="112px"
                       />
                     ) : (
@@ -196,17 +196,17 @@ export default function DetailTabs({
 
       {/* Cast tab */}
       {activeTab === "cast" && (
-        <div className="animate-fadeInUp grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+        <div className="fade-in grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
           {cast.map((person) => (
-            <div key={person.id} className="text-center">
-              <div className="w-20 h-20 mx-auto rounded-full overflow-hidden bg-[#1c1c1c] relative">
+            <div key={person.id} className="text-center group">
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-[#111111] border border-[#1e1e1e] group-hover:border-[#dc2626] transition-colors relative mb-3">
                 {person.profile_path ? (
                   <Image
                     src={`${IMG_BASE}/w185${person.profile_path}`}
                     alt={person.name}
                     fill
-                    className="object-cover"
-                    sizes="80px"
+                    className="object-cover group-hover:scale-110 transition-transform"
+                    sizes="96px"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-[#444] text-2xl">
@@ -233,24 +233,24 @@ export default function DetailTabs({
 
       {/* Trailer tab */}
       {activeTab === "trailer" && (
-        <div className="animate-fadeInUp grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="fade-in grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {trailers.map((v) => (
             <a
               key={v.key}
               href={`https://www.youtube.com/watch?v=${v.key}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-video bg-[#1c1c1c] rounded-lg overflow-hidden"
+              className="group relative aspect-video bg-[#111111] rounded-xl overflow-hidden border border-[#1e1e1e]"
             >
               <Image
                 src={`https://img.youtube.com/vi/${v.key}/mqdefault.jpg`}
                 alt={v.name}
                 fill
-                className="object-cover group-hover:brightness-75 transition-all"
+                className="object-cover group-hover:scale-105 transition-transform"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 bg-[#e50914]/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                <div className="w-14 h-14 bg-[#dc2626] rounded-full flex items-center justify-center scale-90 group-hover:scale-100 shadow-lg transition-transform">
                   <span className="text-white text-xl ml-1">▶</span>
                 </div>
               </div>
